@@ -3,10 +3,16 @@
 
 :root{
     --primary-color: #fe2c55;
+
+    //DefaultLayout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
 }
 
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html{
@@ -18,4 +24,8 @@ body{
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+button{
+    cursor: pointer;
 }
