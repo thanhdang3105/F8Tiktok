@@ -44,6 +44,10 @@
                 border: none;
                 background-color: transparent;
                 outline: none;
+                caret-color: var(--primary-color);
+                &:not(:placeholder-shown) ~ .search-btn{
+                    color: rgba(22, 24, 35, .75);
+                }
             }
             .clear{
                 border: none;
@@ -51,7 +55,6 @@
             }
             .loading{
                 color: #999;
-                cursor: pointer;
                 animation: spiner linear 1.5s infinite;
             }
             .search-btn{
@@ -64,6 +67,9 @@
                 color: #999;
                 &:hover{
                     background-color: rgba(22, 24, 35, .08);
+                }
+                &:active{
+                    background-color: rgba(22, 24, 35, .06);
                 }
                 &:before {
                     content: "";
