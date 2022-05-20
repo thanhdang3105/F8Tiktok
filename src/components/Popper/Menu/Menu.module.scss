@@ -1,0 +1,17 @@
+.content{
+    width: 224px;
+    .wrapper{
+        .menu_item{
+            justify-content: flex-start;
+            border-radius: 0;
+            font-weight: 600;
+            padding: 11px 16px;
+            &:hover{
+                background-color: rgba(22, 24, 35,0.03);
+            }
+        }
+        &:last-child{
+            padding-bottom: 8px;
+        }
+    }
+}

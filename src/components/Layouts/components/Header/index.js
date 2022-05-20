@@ -2,14 +2,31 @@ import React from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
-// import 'tippy.js/dist/tippy.css';
+import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
+// import AccountItem from '~/components/AccountItem';
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={solid('language')} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={regular('circle-question')} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={solid('keyboard')} />,
+        title: 'Keyboard shortcuts',
+    },
+];
 
 export default function Header() {
     const [valueInputSearch, setValueInputSearch] = React.useState('');
@@ -50,16 +67,29 @@ export default function Header() {
                         />
                         {!spinnerVisible && valueInputSearch && (
                             <button className={cx('clear')} onClick={() => setValueInputSearch('')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
+                                <FontAwesomeIcon icon={solid('circle-xmark')} />
                             </button>
                         )}
-                        {spinnerVisible && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                        {spinnerVisible && <FontAwesomeIcon className={cx('loading')} icon={solid('spinner')} />}
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faSearch} />
+                            <FontAwesomeIcon icon={solid('search')} />
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    {/* <FontAwesomeIcon icon={solid('cloud-arrow-up')} />
+                    <FontAwesomeIcon icon={regular('paper-plane')} />
+                    <FontAwesomeIcon icon={regular('message')} /> */}
+                    <Button style_btn="text">Upload</Button>
+                    <Button leftIcon={<FontAwesomeIcon icon={solid('sign-in')} />} color_btn="primary">
+                        Log in
+                    </Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('actions-more')}>
+                            <FontAwesomeIcon icon={solid('ellipsis-vertical')} />
+                        </button>
+                    </Menu>
+                </div>
             </div>
         </header>
     );
