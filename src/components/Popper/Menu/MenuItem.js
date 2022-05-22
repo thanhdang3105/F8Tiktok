@@ -14,6 +14,7 @@ export default function MenuItem({ children, onClick }) {
                 style_btn="large"
                 to={children.to}
                 onClick={onClick}
+                border={children.border}
             >
                 <span>{children.title}</span>
             </Button>

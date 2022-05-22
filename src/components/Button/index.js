@@ -16,6 +16,7 @@ export default function Button({
     className,
     leftIcon,
     rightIcon,
+    border,
     ...passProps
 }) {
     let Comp = 'button';
@@ -34,7 +35,7 @@ export default function Button({
     }
 
     return (
-        <Comp className={cx('wrapper', style_btn, size, color_btn, className)} {...props}>
+        <Comp className={cx('wrapper', style_btn, size, color_btn, className, border)} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('title')}>{children}</span>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}

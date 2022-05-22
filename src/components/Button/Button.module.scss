@@ -25,6 +25,19 @@ button[disabled]{
     cursor: default;
 }
 
+.border-top {
+    border-top: 1px solid rgba(22,24,35,0.12);
+}
+.border-bottom {
+    border-bottom: 1px solid rgba(22,24,35,0.12);
+}
+.border-left {
+    border-left: 1px solid rgba(22,24,35,0.12);
+}
+.border-right {
+    border-right: 1px solid rgba(22,24,35,0.12);
+}
+
 .rounded{
     min-width: 90px;
     font-size: 1.4rem;
